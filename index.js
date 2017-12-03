@@ -14,14 +14,13 @@ io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
     
-    io.emit('userinput',msg +"@" +socket.id  );		
-    
+    io.emit('userinput',msg +"@" +socket.id  ); //adds socketid to end of chat to identify user
   });
 
   socket.on('response_generated' ,function(msg){
     resp = msg.split("@");
     
-    io.to(resp[1]).emit('chat message',resp[0]);
+    io.to(resp[1]).emit('chat message',resp[0]); //splits using @ and broadcast it to user
     
   });
 
