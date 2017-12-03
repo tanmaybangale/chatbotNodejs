@@ -1,4 +1,5 @@
-		
+# uses adapt api to set and identify intent. Class created now can use its object in chatbot app 		
+
 import json
 import sys
 from adapt.intent import IntentBuilder
